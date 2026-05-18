@@ -5,35 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tekitech Paris — Sites web pour commerces locaux</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #07101e;
-  --navy-80: #0d1a2d;
-  --navy-60: #142238;
-  --blue: #2563eb;
+  --navy: #050d1a;
+  --navy-80: #091525;
+  --navy-60: #102035;
+  --blue: #1a56f0;
+  --blue-mid: #2563eb;
   --blue-light: #60a5fa;
-  --blue-glow: rgba(37,99,235,0.15);
-  --accent: #38bdf8;
-  --accent-warm: #f472b6;
+  --blue-glow: rgba(26,86,240,0.15);
+  --cyan: #22d3ee;
+  --cyan-glow: rgba(34,211,238,0.12);
+  --pink: #e879f9;
+  --amber: #f59e0b;
   --white: #ffffff;
-  --off-white: #f8fafc;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-400: #94a3b8;
-  --gray-600: #475569;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --off-white: #f7f9fc;
+  --gray-100: #f0f4fa;
+  --gray-200: #dde4f0;
+  --gray-400: #8898b8;
+  --gray-600: #4a5878;
+  --text-primary: #09122b;
+  --text-secondary: #4a5878;
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --ff: 'DM Sans', sans-serif;
-  --fd: 'Syne', sans-serif;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --ff: 'Instrument Sans', sans-serif;
+  --fd: 'Cabinet Grotesk', sans-serif;
   --fm: 'DM Mono', monospace;
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-  --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
-  --promo: #f59e0b;
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04);
+  --shadow-hover: 0 12px 40px rgba(0,0,0,0.12);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,44 +46,49 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* ── FADE-UP ANIMATION ── */
+/* ── FADE-UP ── */
 .fade-up {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
 }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
-.delay-1 { transition-delay: 100ms !important; }
-.delay-2 { transition-delay: 200ms !important; }
-.delay-3 { transition-delay: 300ms !important; }
-.delay-4 { transition-delay: 400ms !important; }
+.delay-1 { transition-delay: 80ms !important; }
+.delay-2 { transition-delay: 160ms !important; }
+.delay-3 { transition-delay: 240ms !important; }
+.delay-4 { transition-delay: 320ms !important; }
 
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(7,16,30,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(5,13,26,0.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   padding: 0 clamp(1.5rem, 5vw, 4rem);
-  height: 62px;
+  height: 64px;
   display: flex; align-items: center; justify-content: space-between;
-  transition: background 0.3s;
+  transition: background 0.4s, border-color 0.4s;
 }
-nav.scrolled { background: rgba(7,16,30,0.98); }
+nav.scrolled {
+  background: rgba(5,13,26,0.97);
+  border-color: rgba(255,255,255,0.08);
+}
 .nav-logo {
   font-family: var(--fd);
-  font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em;
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
   color: var(--white);
   display: flex; align-items: center; gap: 8px;
 }
-.nav-logo-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent);
+.nav-logo-mark {
+  width: 8px; height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
   animation: pulse 2.5s infinite;
 }
 .nav-links {
@@ -89,18 +96,19 @@ nav.scrolled { background: rgba(7,16,30,0.98); }
   list-style: none;
 }
 .nav-links a {
-  font-size: 0.85rem; color: rgba(255,255,255,0.5);
-  transition: color 0.2s;
+  font-size: 0.875rem; color: rgba(255,255,255,0.45);
+  transition: color 0.2s; font-weight: 500;
 }
 .nav-links a:hover { color: var(--white); }
 .nav-cta {
   background: var(--blue);
   color: var(--white) !important;
-  padding: 8px 20px; border-radius: var(--radius-md);
-  font-size: 0.85rem; font-weight: 500;
-  transition: background 0.2s, transform 0.15s !important;
+  padding: 9px 22px; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  box-shadow: 0 0 0 0 rgba(26,86,240,0.4);
 }
-.nav-cta:hover { background: #1d4ed8 !important; transform: translateY(-1px); }
+.nav-cta:hover { background: #1347d6 !important; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(26,86,240,0.45) !important; }
 .nav-mobile-toggle {
   display: none; background: none; border: none;
   cursor: pointer; padding: 4px;
@@ -115,130 +123,160 @@ nav.scrolled { background: rgba(7,16,30,0.98); }
 }
 .mobile-menu {
   display: none;
-  position: fixed; top: 62px; left: 0; right: 0;
-  background: rgba(7,16,30,0.98);
-  backdrop-filter: blur(16px);
+  position: fixed; top: 64px; left: 0; right: 0;
+  background: rgba(5,13,26,0.98);
+  backdrop-filter: blur(20px);
   padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   z-index: 99;
   flex-direction: column; gap: 1.25rem;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { color: rgba(255,255,255,0.6); font-size: 0.95rem; transition: color 0.2s; }
+.mobile-menu a { color: rgba(255,255,255,0.6); font-size: 1rem; transition: color 0.2s; font-weight: 500; }
 .mobile-menu a:hover { color: var(--white); }
 .mobile-menu .nav-cta { display: inline-block; width: fit-content; margin-top: 0.5rem; }
 
+/* ── WHATSAPP FLOAT ── */
+.whatsapp-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 90;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25d366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: waBounce 3s ease-in-out infinite 2s;
+  cursor: pointer;
+}
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.6); animation: none; }
+.whatsapp-float svg { width: 28px; height: 28px; }
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.wa-tooltip {
+  position: absolute; right: 68px; bottom: 50%; transform: translateY(50%);
+  background: var(--navy);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.78rem; font-weight: 500;
+  padding: 7px 14px; border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right: none; border-left-color: var(--navy);
+}
+.whatsapp-float:hover .wa-tooltip { opacity: 1; }
+
 /* ── SECTIONS ── */
 section { padding: 100px clamp(1.5rem, 5vw, 4rem); }
-.container { max-width: 1100px; margin: 0 auto; }
+.container { max-width: 1120px; margin: 0 auto; }
 
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
   background: var(--navy);
   display: flex; align-items: center;
-  padding-top: 120px;
+  padding-top: 120px; padding-bottom: 80px;
   position: relative;
   overflow: hidden;
 }
 
-/* Animated grid bg */
+/* Noise texture overlay */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none; z-index: 1;
+}
+
 .hero-grid-bg {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(37,99,235,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37,99,235,0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: gridMove 18s linear infinite;
+    linear-gradient(rgba(26,86,240,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,240,0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  animation: gridMove 20s linear infinite;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
 @keyframes gridMove {
   0% { background-position: 0 0; }
-  100% { background-position: 60px 60px; }
+  100% { background-position: 72px 72px; }
 }
 
 /* Glowing orbs */
 .hero-orb {
   position: absolute; border-radius: 50%;
-  pointer-events: none; filter: blur(60px);
+  pointer-events: none; filter: blur(80px);
 }
 .hero-orb-1 {
-  top: 8%; left: 40%; width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(37,99,235,0.25) 0%, transparent 65%);
-  animation: orbFloat 7s ease-in-out infinite;
+  top: -5%; left: 35%; width: 800px; height: 600px;
+  background: radial-gradient(ellipse, rgba(26,86,240,0.2) 0%, transparent 65%);
+  animation: orbFloat 8s ease-in-out infinite;
 }
 .hero-orb-2 {
-  bottom: 5%; right: 5%; width: 350px; height: 350px;
-  background: radial-gradient(ellipse, rgba(56,189,248,0.15) 0%, transparent 65%);
-  animation: orbFloat 9s ease-in-out infinite reverse;
+  bottom: 0%; right: -5%; width: 400px; height: 400px;
+  background: radial-gradient(ellipse, rgba(34,211,238,0.15) 0%, transparent 65%);
+  animation: orbFloat 11s ease-in-out infinite reverse;
 }
 .hero-orb-3 {
-  top: 40%; left: -5%; width: 300px; height: 300px;
-  background: radial-gradient(ellipse, rgba(244,114,182,0.08) 0%, transparent 65%);
-  animation: orbFloat 11s ease-in-out infinite;
+  top: 50%; left: -8%; width: 350px; height: 350px;
+  background: radial-gradient(ellipse, rgba(232,121,249,0.07) 0%, transparent 65%);
+  animation: orbFloat 13s ease-in-out infinite 2s;
 }
 @keyframes orbFloat {
   0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-24px) scale(1.04); }
+  50% { transform: translateY(-28px) scale(1.05); }
 }
 
 /* Particles */
 .particle {
   position: absolute; border-radius: 50%;
-  background: rgba(96,165,250,0.5);
   animation: particleFloat linear infinite;
   pointer-events: none;
 }
 @keyframes particleFloat {
   0% { transform: translateY(0) rotate(0deg); opacity: 0; }
   10% { opacity: 1; }
-  90% { opacity: 0.5; }
+  90% { opacity: 0.4; }
   100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
 
-/* Animated line accents */
-.hero-line {
-  position: absolute; pointer-events: none;
-}
-.hero-line-1 {
-  top: 30%; right: 8%; width: 1px; height: 120px;
-  background: linear-gradient(to bottom, transparent, rgba(56,189,248,0.4), transparent);
-  animation: lineGlow 3s ease-in-out infinite;
-}
-.hero-line-2 {
-  bottom: 25%; right: 15%; width: 80px; height: 1px;
-  background: linear-gradient(to right, transparent, rgba(37,99,235,0.4), transparent);
-  animation: lineGlow 4s ease-in-out infinite 1s;
-}
-@keyframes lineGlow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-.hero-content {
+.hero-inner {
   position: relative; z-index: 2;
-  max-width: 820px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
 }
 
-/* Staggered entrance */
+.hero-content { max-width: 560px; }
+
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(56,189,248,0.08);
-  border: 1px solid rgba(56,189,248,0.25);
-  color: var(--accent);
+  background: rgba(34,211,238,0.08);
+  border: 1px solid rgba(34,211,238,0.2);
+  color: var(--cyan);
   padding: 6px 14px; border-radius: 100px;
-  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
   margin-bottom: 2rem;
   text-transform: uppercase;
   animation: heroEntry 0.9s 0.05s cubic-bezier(0.22,1,0.36,1) both;
 }
 .hero-badge-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
+  background: var(--cyan);
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(56,189,248,0.4); }
-  50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(56,189,248,0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,211,238,0.4); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 7px rgba(34,211,238,0); }
 }
 @keyframes heroEntry {
   from { opacity: 0; transform: translateY(40px); }
@@ -247,22 +285,22 @@ section { padding: 100px clamp(1.5rem, 5vw, 4rem); }
 
 h1 {
   font-family: var(--fd);
-  font-size: clamp(2.8rem, 6.5vw, 5rem);
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   color: var(--white);
   margin-bottom: 1.5rem;
   animation: heroEntry 0.9s 0.15s cubic-bezier(0.22,1,0.36,1) both;
 }
 h1 em {
   font-style: normal;
-  background: linear-gradient(135deg, var(--blue-light) 0%, var(--accent) 50%, #a5b4fc 100%);
+  background: linear-gradient(125deg, #60a5fa 0%, #22d3ee 45%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
+  animation: gradientShift 5s ease infinite;
 }
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
@@ -270,11 +308,11 @@ h1 em {
 }
 
 .hero-sub {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: rgba(255,255,255,0.5);
-  max-width: 540px;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: rgba(255,255,255,0.45);
+  max-width: 500px;
   margin-bottom: 2.5rem;
-  line-height: 1.75;
+  line-height: 1.8;
   animation: heroEntry 0.9s 0.25s cubic-bezier(0.22,1,0.36,1) both;
 }
 .hero-actions {
@@ -286,25 +324,27 @@ h1 em {
   background: var(--blue);
   color: var(--white);
   padding: 15px 30px;
-  border-radius: var(--radius-md);
-  font-size: 0.95rem; font-weight: 500;
+  border-radius: 100px;
+  font-size: 0.95rem; font-weight: 600;
   display: inline-flex; align-items: center; gap: 8px;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   border: none; cursor: pointer;
   position: relative; overflow: hidden;
   font-family: var(--ff);
+  box-shadow: 0 4px 24px rgba(26,86,240,0.4);
 }
-.btn-primary::before {
+.btn-primary::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
   opacity: 0; transition: opacity 0.2s;
 }
-.btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,99,235,0.45); }
-.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover { background: #1347d6; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26,86,240,0.55); }
+.btn-primary:hover::after { opacity: 1; }
+
 .btn-secondary {
-  color: rgba(255,255,255,0.55);
-  font-size: 0.95rem;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9rem; font-weight: 500;
   display: inline-flex; align-items: center; gap: 6px;
   transition: color 0.2s;
   border: none; background: none; cursor: pointer;
@@ -312,73 +352,218 @@ h1 em {
 }
 .btn-secondary:hover { color: var(--white); }
 
-/* Hero promo pill */
+/* Hero promo */
 .hero-promo {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(245,158,11,0.12);
-  border: 1px solid rgba(245,158,11,0.3);
-  color: var(--promo);
-  padding: 5px 12px; border-radius: 100px;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.28);
+  color: #fbbf24;
+  padding: 5px 13px; border-radius: 100px;
   font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
   text-transform: uppercase;
   animation: heroEntry 0.9s 0.4s cubic-bezier(0.22,1,0.36,1) both;
-  margin-left: 0.25rem;
 }
 .promo-dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: var(--promo);
+  background: #fbbf24;
   animation: pulse 1.8s infinite;
 }
 
 .hero-stats {
-  display: flex; gap: 2.5rem; margin-top: 4rem;
+  display: flex; gap: 2.5rem; margin-top: 3.5rem;
   border-top: 1px solid rgba(255,255,255,0.07);
-  padding-top: 2rem;
-  flex-wrap: wrap;
+  padding-top: 2rem; flex-wrap: wrap;
   animation: heroEntry 0.9s 0.45s cubic-bezier(0.22,1,0.36,1) both;
 }
 .hero-stat-num {
   font-family: var(--fd);
-  font-size: 2rem; font-weight: 700; color: var(--white);
-  letter-spacing: -0.04em;
+  font-size: 2.1rem; font-weight: 900; color: var(--white);
+  letter-spacing: -0.04em; line-height: 1;
 }
 .hero-stat-label {
-  font-size: 0.75rem; color: rgba(255,255,255,0.3);
-  margin-top: 2px;
+  font-size: 0.73rem; color: rgba(255,255,255,0.28);
+  margin-top: 4px; line-height: 1.4;
+}
+
+/* ── HERO VISUAL ── */
+.hero-visual {
+  position: relative;
+  animation: heroEntry 0.9s 0.25s cubic-bezier(0.22,1,0.36,1) both;
+}
+.hero-device {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  animation: deviceFloat 6s ease-in-out infinite;
+  position: relative; z-index: 2;
+}
+@keyframes deviceFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
+}
+.device-bar {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 10px;
+}
+.device-dot { width: 9px; height: 9px; border-radius: 50%; }
+.device-dot:nth-child(1) { background: #ff5f57; }
+.device-dot:nth-child(2) { background: #ffbc2e; }
+.device-dot:nth-child(3) { background: #28ca41; }
+.device-url {
+  margin-left: 8px; flex: 1;
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px; height: 22px;
+  display: flex; align-items: center; padding: 0 10px;
+  font-family: var(--fm); font-size: 0.68rem;
+  color: rgba(255,255,255,0.3);
+}
+.device-screen {
+  background: linear-gradient(160deg, #0e1f40, #081530);
+  border-radius: 12px;
+  overflow: hidden; aspect-ratio: 16/10;
+  position: relative;
+}
+/* Mock website content inside device */
+.mock-hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #071028, #0d1f3c);
+}
+.mock-nav {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mock-logo-bar { width: 48px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 4px; }
+.mock-nav-links { display: flex; gap: 8px; }
+.mock-nav-link { width: 24px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+.mock-nav-btn { width: 36px; height: 16px; background: rgba(26,86,240,0.8); border-radius: 8px; }
+.mock-body { padding: 16px 14px; position: relative; z-index: 2; }
+.mock-tag { width: 60px; height: 7px; background: rgba(34,211,238,0.5); border-radius: 4px; margin-bottom: 8px; }
+.mock-h1 { width: 85%; height: 12px; background: rgba(255,255,255,0.8); border-radius: 5px; margin-bottom: 6px; }
+.mock-h1-2 { width: 70%; height: 12px; background: rgba(255,255,255,0.6); border-radius: 5px; margin-bottom: 10px; }
+.mock-p { width: 90%; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; margin-bottom: 5px; }
+.mock-p-2 { width: 75%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 14px; }
+.mock-btns { display: flex; gap: 6px; margin-bottom: 16px; }
+.mock-btn-p { width: 70px; height: 20px; background: rgba(26,86,240,0.9); border-radius: 10px; }
+.mock-btn-s { width: 54px; height: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); }
+.mock-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.mock-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px; padding: 8px;
+}
+.mock-card-icon { width: 18px; height: 18px; background: rgba(26,86,240,0.3); border-radius: 5px; margin-bottom: 6px; }
+.mock-card-line { width: 80%; height: 5px; background: rgba(255,255,255,0.2); border-radius: 3px; margin-bottom: 4px; }
+.mock-card-line-sm { width: 55%; height: 4px; background: rgba(255,255,255,0.08); border-radius: 3px; }
+/* Floating badges around device */
+.device-badge {
+  position: absolute;
+  background: var(--navy-80);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+  z-index: 3; font-size: 0.78rem;
+  white-space: nowrap;
+}
+.badge-icon { font-size: 1rem; }
+.badge-text { color: rgba(255,255,255,0.8); font-weight: 500; }
+.badge-sub { font-size: 0.66rem; color: rgba(255,255,255,0.3); display: block; }
+.device-badge-1 {
+  top: -20px; right: -20px;
+  animation: badgeFloat1 5s ease-in-out infinite;
+}
+.device-badge-2 {
+  bottom: 10px; left: -30px;
+  animation: badgeFloat2 6s ease-in-out infinite 1s;
+}
+.device-badge-3 {
+  top: 50%; right: -30px; transform: translateY(-50%);
+  animation: badgeFloat1 7s ease-in-out infinite 0.5s;
+}
+@keyframes badgeFloat1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes badgeFloat2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* ── SECTION SHARED ── */
 .section-tag {
-  display: inline-block;
+  display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--fm);
   font-size: 0.72rem;
-  color: var(--blue);
+  color: var(--blue-mid);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
+.section-tag::before {
+  content: '';
+  display: block; width: 18px; height: 1.5px;
+  background: var(--blue-mid);
+  border-radius: 2px;
+}
 h2 {
   font-family: var(--fd);
   font-size: clamp(1.9rem, 4vw, 3rem);
-  font-weight: 700; letter-spacing: -0.03em;
-  line-height: 1.08;
+  font-weight: 800; letter-spacing: -0.035em;
+  line-height: 1.06;
   margin-bottom: 1rem;
 }
 .section-intro {
   font-size: 1.05rem; color: var(--text-secondary);
-  max-width: 520px; line-height: 1.75;
+  max-width: 520px; line-height: 1.78;
   margin-bottom: 3rem;
 }
 
+/* ── LOGOS / TRUST BAR ── */
+#trust {
+  padding: 36px clamp(1.5rem, 5vw, 4rem);
+  background: var(--off-white);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.trust-inner {
+  display: flex; align-items: center;
+  gap: 2.5rem; flex-wrap: wrap;
+  justify-content: center;
+}
+.trust-label {
+  font-size: 0.73rem; color: var(--gray-400); text-transform: uppercase;
+  letter-spacing: 0.1em; font-weight: 600; white-space: nowrap;
+}
+.trust-clients {
+  display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;
+}
+.trust-client {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--gray-600); font-size: 0.875rem; font-weight: 600;
+}
+.trust-client-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.trust-divider {
+  width: 1px; height: 30px; background: var(--gray-200);
+}
+
 /* ── PROBLEM ── */
-#problem { background: var(--off-white); }
+#problem { background: var(--white); }
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
 .problem-card {
-  background: var(--white);
+  background: var(--off-white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
@@ -387,20 +572,19 @@ h2 {
 }
 .problem-card::after {
   content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--accent));
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2.5px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
 }
-.problem-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); border-color: rgba(37,99,235,0.15); }
+.problem-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-5px); border-color: rgba(26,86,240,0.15); }
 .problem-card:hover::after { transform: scaleX(1); }
-.problem-icon { font-size: 1.7rem; margin-bottom: 1rem; }
-.problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-.problem-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+.problem-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--fd); letter-spacing: -0.02em; }
+.problem-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
 
 /* ── SERVICES ── */
-#services { background: var(--white); }
+#services { background: var(--off-white); }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,57 +594,42 @@ h2 {
 .service-card {
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 2.25rem;
+  background: var(--white);
   position: relative; overflow: hidden;
   transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
 }
 .service-card::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--accent));
+  position: absolute; top: 0; left: 0; right: 0; height: 2.5px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
 }
-.service-card:hover {
-  border-color: rgba(37,99,235,0.25);
-  box-shadow: 0 0 0 3px var(--blue-glow), var(--shadow-hover);
-  transform: translateY(-3px);
-}
+.service-card:hover { border-color: rgba(26,86,240,0.2); box-shadow: 0 0 0 3px var(--blue-glow), var(--shadow-hover); transform: translateY(-4px); }
 .service-card:hover::before { transform: scaleX(1); }
-.service-card.featured {
-  background: var(--navy);
-  border-color: transparent;
-}
-.service-card.featured::before { background: linear-gradient(90deg, var(--accent), var(--blue-light)); transform: scaleX(1); }
-.service-card.featured h3,
-.service-card.featured .service-num { color: var(--white); }
-.service-card.featured p { color: rgba(255,255,255,0.55); }
-.service-num { font-family: var(--fm); font-size: 0.72rem; color: var(--blue); margin-bottom: 1rem; letter-spacing: 0.08em; }
-.service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
-.service-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+.service-card.featured { background: var(--navy); border-color: transparent; }
+.service-card.featured::before { background: linear-gradient(90deg, var(--cyan), var(--blue-light)); transform: scaleX(1); }
+.service-card.featured h3, .service-card.featured .service-num { color: var(--white); }
+.service-card.featured p { color: rgba(255,255,255,0.5); }
+.service-num { font-family: var(--fm); font-size: 0.72rem; color: var(--blue-mid); margin-bottom: 1rem; letter-spacing: 0.08em; }
+.service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; font-family: var(--fd); letter-spacing: -0.025em; }
+.service-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.68; }
 .service-tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem; }
-.service-tag {
-  font-size: 0.72rem; padding: 4px 10px;
-  border-radius: 100px;
-  background: var(--gray-100);
-  color: var(--text-secondary); font-weight: 500;
-}
-.service-card.featured .service-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); }
-.service-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 0.6rem; }
+.service-tag { font-size: 0.72rem; padding: 5px 11px; border-radius: 100px; background: var(--gray-100); color: var(--text-secondary); font-weight: 600; }
+.service-card.featured .service-tag { background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.6); }
+.service-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 0.7rem; }
 .check-icon {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: rgba(37,99,235,0.12);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 2px;
-  font-size: 0.68rem; color: var(--blue);
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(26,86,240,0.12); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; margin-top: 1px;
+  font-size: 0.68rem; color: var(--blue-mid);
 }
-.service-card.featured .check-icon { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
-.service-check span { font-size: 0.875rem; color: var(--text-secondary); }
-.service-card.featured .service-check span { color: rgba(255,255,255,0.65); }
+.service-card.featured .check-icon { background: rgba(255,255,255,0.15); color: var(--white); }
+.service-card.featured .service-check span:last-child { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
 
 /* ── PORTFOLIO ── */
-#portfolio { background: var(--off-white); }
+#portfolio { background: var(--white); }
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -468,391 +637,426 @@ h2 {
   margin-top: 3rem;
 }
 .portfolio-card {
-  background: var(--white);
   border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--white);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
 }
-.portfolio-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-5px); }
-.portfolio-preview { aspect-ratio: 16/9; position: relative; overflow: hidden; background: var(--navy); }
+.portfolio-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-6px); border-color: rgba(26,86,240,0.2); }
+.portfolio-preview {
+  background: var(--navy);
+  aspect-ratio: 16/9.5;
+  position: relative; overflow: hidden;
+}
 .portfolio-browser-bar {
-  background: rgba(255,255,255,0.07);
-  padding: 8px 12px;
   display: flex; align-items: center; gap: 6px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
 .browser-dot:nth-child(1) { background: #ff5f57; }
-.browser-dot:nth-child(2) { background: #febc2e; }
-.browser-dot:nth-child(3) { background: #28c840; }
+.browser-dot:nth-child(2) { background: #ffbc2e; }
+.browser-dot:nth-child(3) { background: #28ca41; }
 .browser-url {
-  flex: 1; background: rgba(255,255,255,0.06);
-  border-radius: 4px; padding: 3px 10px;
   font-family: var(--fm); font-size: 0.65rem;
-  color: rgba(255,255,255,0.35); margin-left: 6px;
+  color: rgba(255,255,255,0.25); margin-left: 6px;
 }
 .portfolio-mock {
-  padding: 16px 20px;
-  display: flex; flex-direction: column; gap: 10px;
-  height: calc(100% - 33px);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 8px;
 }
-.mock-line { height: 9px; border-radius: 4px; background: rgba(255,255,255,0.08); }
-.mock-line.wide { width: 75%; }
-.mock-line.narrow { width: 45%; }
-.mock-line.accent { width: 28%; background: rgba(37,99,235,0.5); }
+.mock-line { height: 6px; border-radius: 4px; background: rgba(255,255,255,0.12); }
+.mock-line.wide { width: 65%; }
+.mock-line.narrow { width: 42%; }
+.mock-line.accent { width: 24%; }
 .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
-.mock-card-sm { border-radius: 6px; height: 36px; background: rgba(255,255,255,0.06); }
-.portfolio-info { padding: 1.25rem 1.5rem 1.5rem; }
-.portfolio-category { font-size: 0.72rem; font-weight: 500; color: var(--blue); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
-.portfolio-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-.portfolio-info p { font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 1rem; }
-.portfolio-link { font-size: 0.8rem; color: var(--blue); font-weight: 500; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s; }
-.portfolio-link:hover { gap: 8px; }
+.mock-card-sm {
+  height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.portfolio-info { padding: 1.5rem; }
+.portfolio-category { font-family: var(--fm); font-size: 0.7rem; color: var(--blue-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.portfolio-info h3 { font-family: var(--fd); font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.portfolio-info p { font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem; }
+.portfolio-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.82rem; font-weight: 600; color: var(--text-primary);
+  transition: color 0.2s, gap 0.2s;
+  border-bottom: 1px solid var(--gray-200);
+  padding-bottom: 2px;
+}
+.portfolio-link:hover { color: var(--blue-mid); border-color: var(--blue-mid); gap: 8px; }
 
 /* ── PROCESS ── */
-#process { background: var(--white); }
+#process { background: var(--off-white); }
 .process-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0; position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
   margin-top: 3rem;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute; top: 38px; left: calc(12.5%);
+  right: calc(12.5%); height: 1.5px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--blue));
+  opacity: 0.2;
 }
 .process-step {
-  padding: 2rem 1.5rem; position: relative;
+  padding: 0 1.25rem 2rem; position: relative;
   transition: background 0.3s;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg); text-align: center;
 }
-.process-step:hover { background: var(--off-white); }
-.process-step:not(:last-child)::after {
-  content: '→';
-  position: absolute; right: -10px; top: 2.2rem;
-  color: var(--gray-400); font-size: 1.2rem; z-index: 1;
-}
-.step-num { font-family: var(--fm); font-size: 0.72rem; color: var(--blue); letter-spacing: 0.08em; margin-bottom: 0.75rem; display: block; }
+.process-step:hover { background: rgba(26,86,240,0.04); }
+.step-num { font-family: var(--fm); font-size: 0.7rem; color: var(--blue-mid); letter-spacing: 0.08em; margin-bottom: 0.75rem; display: block; }
 .step-icon-wrap {
-  width: 44px; height: 44px;
-  background: var(--blue-glow);
-  border: 1px solid rgba(37,99,235,0.2);
-  border-radius: var(--radius-md);
+  width: 52px; height: 52px;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; margin-bottom: 1rem;
-  transition: transform 0.3s, background 0.3s;
+  font-size: 1.3rem; margin: 0 auto 1.25rem;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  position: relative; z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-.process-step:hover .step-icon-wrap { transform: scale(1.1) rotate(-5deg); background: rgba(37,99,235,0.2); }
-.process-step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-.process-step p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
+.process-step:hover .step-icon-wrap { transform: scale(1.15) translateY(-4px); background: var(--blue); border-color: var(--blue); box-shadow: 0 8px 24px rgba(26,86,240,0.35); }
+.process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--fd); letter-spacing: -0.02em; }
+.process-step p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--white); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.testimonial-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.testimonial-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+.testimonial-stars {
+  display: flex; gap: 3px; margin-bottom: 1rem;
+}
+.star { color: #f59e0b; font-size: 1rem; }
+.testimonial-quote {
+  font-size: 0.95rem; color: var(--text-primary);
+  line-height: 1.75; margin-bottom: 1.5rem;
+  font-style: italic; position: relative;
+}
+.testimonial-quote::before {
+  content: '"';
+  font-family: var(--fd); font-size: 3.5rem;
+  color: var(--gray-200); line-height: 1;
+  position: absolute; top: -16px; left: -6px;
+  font-weight: 900;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.95rem; color: white;
+  flex-shrink: 0;
+}
+.author-name { font-weight: 700; font-size: 0.9rem; font-family: var(--fd); }
+.author-role { font-size: 0.78rem; color: var(--text-secondary); }
+.testimonial-site {
+  margin-top: 1.25rem; padding-top: 1.25rem;
+  border-top: 1px solid var(--gray-200);
+  display: flex; align-items: center; gap: 8px;
+}
+.site-pill {
+  font-family: var(--fm); font-size: 0.68rem;
+  background: var(--blue-glow); color: var(--blue-mid);
+  padding: 3px 10px; border-radius: 100px; font-weight: 600;
+}
 
 /* ── PRICING ── */
 #pricing { background: var(--off-white); }
-
-/* Promo banner */
 .promo-banner {
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px;
-  background: rgba(245,158,11,0.08);
-  border: 1px solid rgba(245,158,11,0.25);
-  border-radius: var(--radius-lg);
-  padding: 12px 20px;
-  margin-bottom: 2.5rem;
-  font-size: 0.85rem;
-  color: #92400e;
-  font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: rgba(245,158,11,0.07);
+  border: 1px solid rgba(245,158,11,0.22);
+  border-radius: var(--radius-lg); padding: 13px 22px;
+  margin-bottom: 2.5rem; font-size: 0.875rem;
+  color: #92400e; font-weight: 500;
 }
-.promo-banner-icon {
-  font-size: 1rem;
-}
-.promo-banner strong {
-  color: #b45309;
-}
-.promo-banner .countdown {
+.promo-banner strong { color: #b45309; }
+.countdown {
   font-family: var(--fm);
-  background: rgba(245,158,11,0.15);
-  border: 1px solid rgba(245,158,11,0.3);
-  color: #d97706;
-  padding: 2px 10px;
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  background: rgba(245,158,11,0.14);
+  border: 1px solid rgba(245,158,11,0.28);
+  color: #d97706; padding: 3px 11px;
+  border-radius: 100px; font-size: 0.72rem; font-weight: 600;
 }
-
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-  align-items: stretch;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; margin-top: 1rem;
+  max-width: 520px; margin-left: auto; margin-right: auto;
 }
 .pricing-card {
   background: var(--white);
   border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl);
-  padding: 2.5rem 2rem;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex; flex-direction: column;
+  border-radius: var(--radius-xl); padding: 2.75rem 2.25rem;
+  position: relative; transition: transform 0.3s, box-shadow 0.3s;
+  display: flex; flex-direction: column; text-align: center;
 }
 .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 .pricing-card.recommended {
   background: var(--navy);
   border-color: transparent;
-  box-shadow: 0 8px 40px rgba(10,15,30,0.3);
+  box-shadow: 0 8px 48px rgba(5,13,26,0.35);
 }
-.pricing-card.recommended:hover { transform: translateY(-6px); box-shadow: 0 16px 60px rgba(10,15,30,0.4); }
+.pricing-card.recommended:hover { transform: translateY(-6px); box-shadow: 0 20px 64px rgba(5,13,26,0.45); }
 .pricing-badge {
-  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--blue), var(--accent));
-  color: var(--white);
-  font-size: 0.68rem; font-weight: 600;
-  padding: 5px 16px; border-radius: 100px;
-  text-transform: uppercase; letter-spacing: 0.07em;
-  white-space: nowrap;
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: var(--white); font-size: 0.7rem; font-weight: 700;
+  padding: 5px 18px; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap;
 }
 .pricing-plan {
-  font-family: var(--fm);
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  font-family: var(--fm); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-secondary); margin-bottom: 0.75rem;
 }
-.pricing-card.recommended .pricing-plan { color: rgba(255,255,255,0.35); }
+.pricing-card.recommended .pricing-plan { color: rgba(255,255,255,0.3); }
 .pricing-price {
-  font-family: var(--fd);
-  font-size: 3.2rem; font-weight: 700; letter-spacing: -0.04em;
+  font-family: var(--fd); font-size: 4.5rem;
+  font-weight: 900; letter-spacing: -0.05em;
   color: var(--text-primary); line-height: 1;
-  margin-bottom: 0.25rem;
+  margin: 0.5rem 0 0.25rem;
 }
 .pricing-card.recommended .pricing-price { color: var(--white); }
-.pricing-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 0.5rem; display: inline-block; font-weight: 400; }
+.pricing-price sup { font-size: 1.5rem; vertical-align: top; margin-top: 0.8rem; display: inline-block; font-weight: 500; }
 .pricing-delivery {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.8rem; color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-  font-weight: 500;
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 500;
 }
-.pricing-card.recommended .pricing-delivery { color: rgba(255,255,255,0.5); }
+.pricing-card.recommended .pricing-delivery { color: rgba(255,255,255,0.45); }
 .delivery-badge {
-  background: rgba(37,99,235,0.1);
-  color: var(--blue);
-  padding: 2px 8px; border-radius: 100px;
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
-  font-family: var(--fm);
+  background: rgba(26,86,240,0.1); color: var(--blue-mid);
+  padding: 2px 9px; border-radius: 100px;
+  font-size: 0.7rem; font-weight: 700; font-family: var(--fm);
 }
-.pricing-card.recommended .delivery-badge { background: rgba(56,189,248,0.15); color: var(--accent); }
-.delivery-badge.express {
-  background: rgba(244,114,182,0.12);
-  color: var(--accent-warm);
-}
-.pricing-card.recommended .delivery-badge.express { background: rgba(244,114,182,0.2); color: #f9a8d4; }
+.pricing-card.recommended .delivery-badge { background: rgba(34,211,238,0.15); color: var(--cyan); }
 .pricing-desc {
-  font-size: 0.85rem; color: var(--text-secondary); margin: 0.75rem 0 1.5rem;
-  padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-200);
-  line-height: 1.6;
+  font-size: 0.875rem; color: var(--text-secondary);
+  margin: 0.75rem 0 1.5rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200); line-height: 1.65;
 }
-.pricing-card.recommended .pricing-desc { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.08); }
-.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; flex: 1; }
-.pricing-features li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--text-secondary); }
+.pricing-card.recommended .pricing-desc { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.07); }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; flex: 1; text-align: left; }
+.pricing-features li { display: flex; align-items: center; gap: 11px; font-size: 0.9rem; color: var(--text-secondary); }
 .pricing-card.recommended .pricing-features li { color: rgba(255,255,255,0.65); }
 .feature-check {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(37,99,235,0.1); flex-shrink: 0;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(26,86,240,0.1); flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  color: var(--blue); font-size: 0.68rem;
+  color: var(--blue-mid); font-size: 0.7rem;
 }
-.pricing-card.recommended .feature-check { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.pricing-card.recommended .feature-check { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
 .btn-pricing {
-  width: 100%; padding: 13px;
-  border-radius: var(--radius-md);
-  font-size: 0.9rem; font-weight: 500;
-  cursor: pointer; border: none;
-  transition: all 0.25s;
-  font-family: var(--ff);
-  margin-top: auto;
+  width: 100%; padding: 15px;
+  border-radius: 100px; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.25s;
+  font-family: var(--ff); margin-top: auto;
 }
 .btn-pricing.outline {
-  background: transparent;
-  border: 1.5px solid var(--gray-200);
-  color: var(--text-primary);
+  background: transparent; border: 1.5px solid var(--gray-200); color: var(--text-primary);
 }
-.btn-pricing.outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+.btn-pricing.outline:hover { border-color: var(--blue-mid); color: var(--blue-mid); transform: translateY(-2px); }
 .btn-pricing.filled {
-  background: linear-gradient(135deg, var(--blue), #1d4ed8);
-  color: var(--white);
-  box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+  background: linear-gradient(135deg, var(--blue), #1347d6);
+  color: var(--white); box-shadow: 0 4px 20px rgba(26,86,240,0.35);
 }
-.btn-pricing.filled:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.5); transform: translateY(-2px); }
-.pricing-note {
-  text-align: center; font-size: 0.8rem;
-  color: var(--text-secondary); margin-top: 2rem;
+.btn-pricing.filled:hover { box-shadow: 0 10px 32px rgba(26,86,240,0.55); transform: translateY(-2px); }
+.pricing-note { text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 2rem; }
+
+/* ── FAQ ── */
+#faq { background: var(--white); }
+.faq-list { display: flex; flex-direction: column; gap: 0; max-width: 720px; margin-top: 2.5rem; }
+.faq-item {
+  border-bottom: 1px solid var(--gray-200);
+  overflow: hidden;
 }
+.faq-question {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.25rem 0; text-align: left; font-family: var(--ff);
+  font-size: 0.975rem; font-weight: 600; color: var(--text-primary);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--blue-mid); }
+.faq-icon {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 1.1rem; font-weight: 300; color: var(--text-secondary);
+  transition: background 0.2s, transform 0.3s, color 0.2s;
+}
+.faq-item.open .faq-icon { background: var(--blue-mid); color: white; transform: rotate(45deg); }
+.faq-answer {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75;
+  padding: 0 0 1.25rem; display: none;
+}
+.faq-item.open .faq-answer { display: block; }
 
 /* ── CONTACT ── */
-#contact {
-  background: var(--navy);
-  position: relative; overflow: hidden;
-}
+#contact { background: var(--navy); position: relative; overflow: hidden; }
 #contact::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(26,86,240,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,240,0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
-/* Extra contact orb */
 #contact::after {
   content: '';
-  position: absolute; top: 20%; right: -10%; width: 500px; height: 500px;
-  background: radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 65%);
-  pointer-events: none;
-  border-radius: 50%;
+  position: absolute; top: 10%; right: -15%; width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(26,86,240,0.1) 0%, transparent 65%);
+  pointer-events: none; border-radius: 50%;
 }
-#contact .section-tag { color: rgba(96,165,250,0.8); }
-#contact h2 { color: var(--white); }
 .contact-inner {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: start;
-  position: relative; z-index: 1;
+  gap: 4rem; align-items: start; position: relative; z-index: 1;
 }
-.contact-left .section-intro { color: rgba(255,255,255,0.45); max-width: 400px; }
+.contact-left .section-intro { color: rgba(255,255,255,0.4); max-width: 400px; }
 .contact-perks { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
 .contact-perk { display: flex; align-items: flex-start; gap: 1rem; }
 .perk-icon {
-  width: 40px; height: 40px; border-radius: var(--radius-md);
-  background: rgba(37,99,235,0.15);
-  border: 1px solid rgba(37,99,235,0.25);
+  width: 42px; height: 42px; border-radius: var(--radius-md);
+  background: rgba(26,86,240,0.15); border: 1px solid rgba(26,86,240,0.25);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem; flex-shrink: 0;
 }
 .perk-text { display: flex; flex-direction: column; gap: 3px; }
-.perk-text strong { font-size: 0.9rem; color: var(--white); font-weight: 500; }
-.perk-text span { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.5; }
-
+.perk-text strong { font-size: 0.9rem; color: var(--white); font-weight: 600; }
+.perk-text span { font-size: 0.82rem; color: rgba(255,255,255,0.33); line-height: 1.5; }
 /* Form */
 .contact-form {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: var(--radius-xl);
-  padding: 2.5rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl); padding: 2.75rem;
+  backdrop-filter: blur(16px); box-shadow: 0 32px 80px rgba(0,0,0,0.35);
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
-.form-group label {
-  font-size: 0.8rem; font-weight: 500;
-  color: rgba(255,255,255,0.45); letter-spacing: 0.03em;
-}
+.form-group label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.03em; }
 .form-control {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius-md);
-  padding: 11px 14px;
-  font-size: 0.88rem; color: var(--white);
-  outline: none;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-md); padding: 12px 15px;
+  font-size: 0.9rem; color: var(--white); outline: none;
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  font-family: var(--ff);
-  width: 100%;
+  font-family: var(--ff); width: 100%;
 }
-.form-control::placeholder { color: rgba(255,255,255,0.18); }
-.form-control:focus {
-  border-color: rgba(96,165,250,0.5);
-  background: rgba(255,255,255,0.09);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
-}
+.form-control::placeholder { color: rgba(255,255,255,0.15); }
+.form-control:focus { border-color: rgba(96,165,250,0.5); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 3px rgba(26,86,240,0.15); }
 .form-control option { background: var(--navy-80); color: var(--white); }
-textarea.form-control { resize: vertical; min-height: 110px; }
+textarea.form-control { resize: vertical; min-height: 115px; }
 .btn-submit {
-  width: 100%; padding: 15px;
-  background: linear-gradient(135deg, var(--blue), #1d4ed8);
-  color: var(--white);
-  border: none; border-radius: var(--radius-md);
-  font-size: 0.95rem; font-weight: 500;
-  cursor: pointer;
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--blue), #1347d6);
+  color: var(--white); border: none; border-radius: 100px;
+  font-size: 0.975rem; font-weight: 600; cursor: pointer;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  transition: all 0.25s;
-  font-family: var(--ff);
-  box-shadow: 0 4px 20px rgba(37,99,235,0.35);
-  margin-top: 0.5rem;
+  transition: all 0.25s; font-family: var(--ff);
+  box-shadow: 0 4px 24px rgba(26,86,240,0.4); margin-top: 0.5rem;
 }
-.btn-submit:hover { box-shadow: 0 8px 32px rgba(37,99,235,0.55); transform: translateY(-2px); }
+.btn-submit:hover { box-shadow: 0 10px 36px rgba(26,86,240,0.6); transform: translateY(-2px); }
 .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
 .form-success {
-  display: none;
-  text-align: center; padding: 2rem 1rem;
+  display: none; text-align: center; padding: 2rem 1rem;
 }
 .success-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(37,99,235,0.2);
-  border: 2px solid rgba(96,165,250,0.4);
+  width: 70px; height: 70px; border-radius: 50%;
+  background: rgba(26,86,240,0.2); border: 2px solid rgba(96,165,250,0.4);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; margin: 0 auto 1.25rem;
+  font-size: 1.8rem; margin: 0 auto 1.25rem;
   animation: successPop 0.5s cubic-bezier(0.22,1,0.36,1) both;
 }
-@keyframes successPop {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.form-success h3 { color: var(--white); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; font-family: var(--fd); }
-.form-success p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; }
+@keyframes successPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.form-success h3 { color: var(--white); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--fd); }
+.form-success p { color: rgba(255,255,255,0.4); font-size: 0.9rem; line-height: 1.65; }
 
 /* ── FOOTER ── */
 footer {
-  background: #040a14;
-  padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
-  text-align: center;
+  background: #030810;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem) 2rem;
   border-top: 1px solid rgba(255,255,255,0.04);
 }
+.footer-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand {}
 .footer-logo {
-  font-family: var(--fd);
-  font-size: 1.2rem; font-weight: 700;
-  margin-bottom: 1.25rem;
+  font-family: var(--fd); font-size: 1.3rem; font-weight: 800;
+  margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;
 }
-.footer-links {
-  display: flex; align-items: center; justify-content: center;
-  gap: 2rem; flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+.footer-logo-mark {
+  width: 26px; height: 26px; background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-radius: 7px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 900; color: white;
 }
-.footer-links a {
-  font-size: 0.82rem; color: rgba(255,255,255,0.25);
-  transition: color 0.2s;
+.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.28); line-height: 1.7; max-width: 220px; }
+.footer-col-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 1rem; }
+.footer-col-links { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col-links a { font-size: 0.85rem; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+.footer-col-links a:hover { color: rgba(255,255,255,0.7); }
+.footer-bottom {
+  max-width: 1120px; margin: 0 auto;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
 }
-.footer-links a:hover { color: rgba(255,255,255,0.65); }
 .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.12); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.15); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.4); }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-steps::before { display: none; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; }
-  section { padding: 70px clamp(1.25rem, 4vw, 2rem); }
+  section { padding: 72px clamp(1.25rem, 4vw, 2rem); }
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .form-row { grid-template-columns: 1fr; }
   .process-step:not(:last-child)::after { display: none; }
   .hero-stats { gap: 1.5rem; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .pricing-grid { max-width: 100%; }
   .promo-banner { flex-direction: column; text-align: center; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .process-steps { grid-template-columns: 1fr; }
+  #trust .trust-inner { flex-direction: column; gap: 1rem; }
 }
 
-/* ── LOADING STATE ── */
-.spinner {
-  width: 18px; height: 18px;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: white;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-}
+/* ── MISC ── */
+.spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.6s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* Field error state */
-.form-control.error {
-  border-color: rgba(239,68,68,0.6) !important;
-  box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important;
-}
+.form-control.error { border-color: rgba(239,68,68,0.6) !important; box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important; }
 </style>
 </head>
 <body>
@@ -860,14 +1064,15 @@ footer {
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#hero" class="nav-logo">
-    <span class="nav-logo-dot"></span>
-    Tekitech<span style="color:var(--accent)">.</span>paris
+    <span class="nav-logo-mark"></span>
+    Tekitech<span style="color:var(--cyan)">.</span>paris
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Réalisations</a></li>
     <li><a href="#pricing">Tarifs</a></li>
-    <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+    <li><a href="#testimonials">Avis</a></li>
+    <li><a href="#contact" class="nav-cta">Devis gratuit →</a></li>
   </ul>
   <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
     <div class="hamburger"><span></span><span></span><span></span></div>
@@ -877,8 +1082,17 @@ footer {
   <a href="#services" onclick="closeMobileMenu()">Services</a>
   <a href="#portfolio" onclick="closeMobileMenu()">Réalisations</a>
   <a href="#pricing" onclick="closeMobileMenu()">Tarifs</a>
-  <a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Devis gratuit</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Avis clients</a>
+  <a href="#contact" class="nav-cta" onclick="closeMobileMenu()">Devis gratuit →</a>
 </div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/33600000000" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <span class="wa-tooltip">Écrire sur WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
 <!-- HERO -->
 <section id="hero">
@@ -886,79 +1100,150 @@ footer {
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-line hero-line-1"></div>
-  <div class="hero-line hero-line-2"></div>
   <div id="particlesContainer"></div>
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Paris · Sites web pour commerces locaux
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Paris · Sites web pour commerces locaux
+        </div>
+        <h1>Votre commerce mérite<br>une <em>vitrine digitale</em><br>qui convertit.</h1>
+        <p class="hero-sub">On crée des sites rapides, modernes et efficaces pour les artisans, restaurateurs et indépendants parisiens. Livré en <strong style="color:rgba(255,255,255,0.85)">48h</strong>, à partir de <strong style="color:rgba(255,255,255,0.85)">350€</strong> tout inclus.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Demander un devis gratuit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <span class="hero-promo">
+            <span class="promo-dot"></span>
+            Offre jusqu'au 1er juin 2026
+          </span>
+        </div>
+        <div style="margin-top:1.2rem">
+          <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+            Voir les réalisations
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="48" data-suffix="h">48h</div>
+            <div class="hero-stat-label">Délai de livraison</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">350€</div>
+            <div class="hero-stat-label">Tarif tout inclus</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="100" data-suffix="%">100%</div>
+            <div class="hero-stat-label">Clients satisfaits</div>
+          </div>
+        </div>
       </div>
-      <h1>Votre commerce mérite<br>une <em>vitrine digitale</em><br>qui convertit.</h1>
-      <p class="hero-sub">On crée des sites rapides, modernes et efficaces pour les artisans, restaurateurs et indépendants parisiens. Livré en <strong style="color:rgba(255,255,255,0.85)">48h</strong>, à partir de <strong style="color:rgba(255,255,255,0.85)">350€</strong>.</p>
-      <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Demander un devis gratuit
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-        <span class="hero-promo">
-          <span class="promo-dot"></span>
-          Offre jusqu'au 1er juin
-        </span>
-        <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
-          Voir les réalisations
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">48h</div>
-          <div class="hero-stat-label">Délai standard</div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <div class="device-badge device-badge-1">
+          <div class="badge-icon">🚀</div>
+          <div>
+            <div class="badge-text">Site mis en ligne</div>
+            <span class="badge-sub">En moins de 48h</span>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">24h</div>
-          <div class="hero-stat-label">Livraison express</div>
+        <div class="device-badge device-badge-2">
+          <div class="badge-icon">📱</div>
+          <div>
+            <div class="badge-text">100% mobile-first</div>
+            <span class="badge-sub">Parfait sur tous écrans</span>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">350€</div>
-          <div class="hero-stat-label">À partir de</div>
+        <div class="device-badge device-badge-3">
+          <div class="badge-icon">⚡</div>
+          <div>
+            <div class="badge-text">Score 98/100</div>
+            <span class="badge-sub">Google Lighthouse</span>
+          </div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">100%</div>
-          <div class="hero-stat-label">Mobile-first</div>
+        <div class="hero-device">
+          <div class="device-bar">
+            <div class="device-dot"></div>
+            <div class="device-dot"></div>
+            <div class="device-dot"></div>
+            <div class="device-url">votre-commerce.paris</div>
+          </div>
+          <div class="device-screen">
+            <div class="mock-hero-bg"></div>
+            <div class="mock-nav">
+              <div class="mock-logo-bar"></div>
+              <div class="mock-nav-links">
+                <div class="mock-nav-link"></div>
+                <div class="mock-nav-link"></div>
+                <div class="mock-nav-btn"></div>
+              </div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-tag"></div>
+              <div class="mock-h1"></div>
+              <div class="mock-h1-2"></div>
+              <div class="mock-p"></div>
+              <div class="mock-p-2"></div>
+              <div class="mock-btns">
+                <div class="mock-btn-p"></div>
+                <div class="mock-btn-s"></div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card">
+                  <div class="mock-card-icon"></div>
+                  <div class="mock-card-line"></div>
+                  <div class="mock-card-line-sm"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon" style="background:rgba(34,211,238,0.25)"></div>
+                  <div class="mock-card-line"></div>
+                  <div class="mock-card-line-sm"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon" style="background:rgba(232,121,249,0.2)"></div>
+                  <div class="mock-card-line"></div>
+                  <div class="mock-card-line-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <!-- PROBLEM -->
 <section id="problem">
   <div class="container">
-    <span class="section-tag fade-up">Constat</span>
-    <h2 class="fade-up">Beaucoup de commerces locaux<br>perdent des clients en ligne.</h2>
-    <p class="section-intro fade-up">Un site lent ou inexistant, c'est un client qui passe chez le concurrent. Pourtant, avoir un site efficace ne devrait pas être compliqué.</p>
+    <span class="section-tag fade-up">Le problème</span>
+    <h2 class="fade-up">Sans site web,<br>vous perdez des clients.</h2>
+    <p class="section-intro fade-up">À Paris, 87% des consommateurs cherchent un commerce en ligne avant de se déplacer. Pas de site = client perdu.</p>
     <div class="problem-grid">
       <div class="problem-card fade-up delay-1">
-        <div class="problem-icon">🐢</div>
-        <h3>Sites trop lents</h3>
-        <p>53% des visiteurs abandonnent un site qui met plus de 3 secondes à charger. Surtout sur mobile.</p>
+        <div class="problem-icon">👻</div>
+        <h3>Vous êtes invisible sur Google</h3>
+        <p>Sans site web, vos concurrents captent tous les clients qui cherchent votre activité en ligne.</p>
       </div>
       <div class="problem-card fade-up delay-2">
-        <div class="problem-icon">📱</div>
-        <h3>Non adapté au mobile</h3>
-        <p>Plus de 70% des recherches locales se font sur téléphone. Un site non responsive = clients perdus.</p>
+        <div class="problem-icon">😤</div>
+        <h3>Votre site actuel est vieillissant</h3>
+        <p>Un site lent, peu mobile et mal designé fait fuir les visiteurs avant même qu'ils lisent votre offre.</p>
       </div>
       <div class="problem-card fade-up delay-3">
         <div class="problem-icon">💸</div>
-        <h3>Prix inaccessibles</h3>
-        <p>Les agences traditionnelles facturent 2 000€ à 10 000€ pour une landing page. C'est trop pour un commerce local.</p>
+        <h3>Les agences coûtent trop cher</h3>
+        <p>Entre 3 000 et 15 000€ pour un site vitrine dans une grande agence. Tekitech, c'est la qualité agence à prix direct, sans les marges intermédiaires.</p>
       </div>
       <div class="problem-card fade-up delay-4">
-        <div class="problem-icon">⏳</div>
-        <h3>Délais interminables</h3>
-        <p>Des mois de réunions pour un site "en cours". Votre activité ne peut pas attendre aussi longtemps.</p>
+        <div class="problem-icon">🤯</div>
+        <h3>Les solutions DIY sont trop complexes</h3>
+        <p>Wix, Squarespace, Wordpress… des heures perdues pour un résultat amateur qui ne vous représente pas.</p>
       </div>
     </div>
   </div>
@@ -967,9 +1252,9 @@ footer {
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <span class="section-tag fade-up">Ce qu'on crée</span>
-    <h2 class="fade-up">Des sites qui travaillent<br>pour vous, 24h/24.</h2>
-    <p class="section-intro fade-up">Chaque site est conçu pour convertir les visiteurs en clients, sur tous les appareils.</p>
+    <span class="section-tag fade-up">Ce qu'on fait</span>
+    <h2 class="fade-up">Un site qui travaille<br>pour vous, 24h/24.</h2>
+    <p class="section-intro fade-up">On conçoit des sites clé-en-main pensés pour convertir les visiteurs en clients.</p>
     <div class="services-grid">
       <div class="service-card fade-up delay-1">
         <div class="service-num">01 — Landing page</div>
@@ -978,25 +1263,25 @@ footer {
         <div class="service-tag-list">
           <span class="service-tag">Design moderne</span>
           <span class="service-tag">Mobile-first</span>
-          <span class="service-tag">Rapide</span>
+          <span class="service-tag">Ultra-rapide</span>
         </div>
       </div>
       <div class="service-card featured fade-up delay-2">
-        <div class="service-num">02 — Site multi-sections</div>
-        <h3>Présence complète</h3>
-        <p>Accueil, services, galerie, témoignages, contact — un site complet qui inspire confiance et génère des leads.</p>
-        <div class="service-check"><span class="check-icon">✓</span><span>Galerie photos intégrée</span></div>
-        <div class="service-check"><span class="check-icon">✓</span><span>Google Maps intégré</span></div>
-        <div class="service-check"><span class="check-icon">✓</span><span>Formulaire de contact</span></div>
-        <div class="service-check"><span class="check-icon">✓</span><span>Optimisation SEO locale</span></div>
+        <div class="service-num">02 — Fonctionnalités clés</div>
+        <h3>Tout ce qu'il faut</h3>
+        <p>Des boutons d'action simples pour que vos clients puissent vous contacter en un clic depuis leur téléphone.</p>
+        <div class="service-check"><span class="check-icon">✓</span><span>Bouton d'appel direct</span></div>
+        <div class="service-check"><span class="check-icon">✓</span><span>Lien vers votre WhatsApp</span></div>
+        <div class="service-check"><span class="check-icon">✓</span><span>Formulaire de contact sécurisé</span></div>
+        <div class="service-check"><span class="check-icon">✓</span><span>Optimisation SEO local Paris</span></div>
       </div>
       <div class="service-card fade-up delay-3">
-        <div class="service-num">03 — Fonctionnalités clés</div>
-        <h3>Tout ce qu'il faut</h3>
-        <p>Boutons WhatsApp, réservation, formulaire, Google Analytics — tout ce qui aide vos clients à vous contacter facilement.</p>
+        <div class="service-num">03 — Tout inclus</div>
+        <h3>Zéro prise de tête</h3>
+        <p>Hébergement, domaine, SSL, maintenance : on s'occupe de tout. Vous vous concentrez sur votre activité.</p>
         <div class="service-tag-list">
-          <span class="service-tag">WhatsApp</span>
-          <span class="service-tag">Analytics</span>
+          <span class="service-tag">Hébergement inclus</span>
+          <span class="service-tag">Domaine inclus</span>
           <span class="service-tag">SSL inclus</span>
         </div>
       </div>
@@ -1018,18 +1303,18 @@ footer {
             <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
             <span class="browser-url">pastasma.netlify.app</span>
           </div>
-          <div class="portfolio-mock" style="background: linear-gradient(135deg,#1a0a02,#2d1a0a)">
-            <div class="mock-line wide" style="background:rgba(245,158,11,0.4)"></div>
+          <div class="portfolio-mock" style="background: linear-gradient(160deg,#1a0a02,#2d1809)">
+            <div class="mock-line wide" style="background:rgba(245,158,11,0.5)"></div>
             <div class="mock-line narrow" style="background:rgba(255,255,255,0.1)"></div>
-            <div class="mock-line accent" style="background:rgba(245,158,11,0.6);width:24%"></div>
+            <div class="mock-line accent" style="background:rgba(245,158,11,0.7);width:28%"></div>
             <div class="mock-grid">
-              <div class="mock-card-sm" style="background:rgba(245,158,11,0.12)"></div>
-              <div class="mock-card-sm" style="background:rgba(245,158,11,0.08)"></div>
+              <div class="mock-card-sm" style="background:rgba(245,158,11,0.14)"></div>
+              <div class="mock-card-sm" style="background:rgba(245,158,11,0.09)"></div>
             </div>
           </div>
         </div>
         <div class="portfolio-info">
-          <div class="portfolio-category">Restaurant · Café</div>
+          <div class="portfolio-category">🍝 Restaurant · Café</div>
           <h3>Pastas Ma</h3>
           <p>Site one-page pour restaurant italien à Paris. Menu, galerie et prise de contact directe par WhatsApp.</p>
           <a href="https://pastasma.netlify.app/" target="_blank" class="portfolio-link">
@@ -1045,18 +1330,18 @@ footer {
             <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
             <span class="browser-url">nicolas-paris-tours.netlify.app</span>
           </div>
-          <div class="portfolio-mock" style="background: linear-gradient(135deg,#0a1628,#182d4a)">
-            <div class="mock-line wide" style="background:rgba(96,160,255,0.35)"></div>
+          <div class="portfolio-mock" style="background: linear-gradient(160deg,#0a1628,#182d4a)">
+            <div class="mock-line wide" style="background:rgba(96,160,255,0.4)"></div>
             <div class="mock-line narrow" style="background:rgba(255,255,255,0.1)"></div>
-            <div class="mock-line accent" style="background:rgba(59,130,246,0.6);width:26%"></div>
+            <div class="mock-line accent" style="background:rgba(59,130,246,0.65);width:30%"></div>
             <div class="mock-grid">
-              <div class="mock-card-sm"></div>
-              <div class="mock-card-sm"></div>
+              <div class="mock-card-sm" style="background:rgba(59,130,246,0.12)"></div>
+              <div class="mock-card-sm" style="background:rgba(59,130,246,0.07)"></div>
             </div>
           </div>
         </div>
         <div class="portfolio-info">
-          <div class="portfolio-category">Guide touristique · Services</div>
+          <div class="portfolio-category">🗼 Guide touristique · Services</div>
           <h3>Nicolas Paris Tours</h3>
           <p>Site vitrine pour guide touristique indépendant. Présentation des services, témoignages et réservation.</p>
           <a href="https://nicolas-paris-tours.netlify.app/" target="_blank" class="portfolio-link">
@@ -1067,25 +1352,25 @@ footer {
       </div>
 
       <div class="portfolio-card fade-up delay-3" style="border-style: dashed; background: var(--off-white);">
-        <div class="portfolio-preview" style="background: linear-gradient(135deg, #0e1b2e, #162540);">
+        <div class="portfolio-preview" style="background: linear-gradient(160deg, #0e1b2e, #162540);">
           <div class="portfolio-browser-bar">
             <span class="browser-dot" style="background:rgba(255,255,255,0.15)"></span>
             <span class="browser-dot" style="background:rgba(255,255,255,0.1)"></span>
             <span class="browser-dot" style="background:rgba(255,255,255,0.07)"></span>
-            <span class="browser-url">votre-site.netlify.app</span>
+            <span class="browser-url">votre-site.paris</span>
           </div>
-          <div class="portfolio-mock" style="align-items:center;justify-content:center;background:linear-gradient(135deg,#0e1b2e,#162540)">
-            <div style="text-align:center;padding:1rem">
-              <div style="font-size:2rem;margin-bottom:0.5rem">✦</div>
-              <div style="font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">Votre projet ici</div>
+          <div class="portfolio-mock" style="align-items:center;justify-content:center;background:linear-gradient(160deg,#0e1b2e,#162540); min-height:90px;">
+            <div style="text-align:center;padding:1.5rem">
+              <div style="font-size:2.2rem;margin-bottom:0.6rem">✦</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);letter-spacing:0.12em;text-transform:uppercase;">Votre projet ici</div>
             </div>
           </div>
         </div>
         <div class="portfolio-info">
-          <div class="portfolio-category">Votre activité</div>
+          <div class="portfolio-category">💼 Votre activité</div>
           <h3>Votre site web</h3>
-          <p>Artisan, restaurant, freelance ou commerce — on crée votre vitrine digitale sur-mesure en 48h.</p>
-          <a href="#contact" class="portfolio-link" style="color:var(--blue)">
+          <p>Artisan, restaurant, freelance ou commerce : on crée votre vitrine digitale sur-mesure en 48h.</p>
+          <a href="#contact" class="portfolio-link" style="color:var(--blue-mid)">
             Démarrer mon projet
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1101,7 +1386,7 @@ footer {
   <div class="container">
     <span class="section-tag fade-up">Comment ça marche</span>
     <h2 class="fade-up">Simple, rapide,<br>livré en 48h.</h2>
-    <p class="section-intro fade-up">De votre premier message à la mise en ligne, voici les 4 étapes.</p>
+    <p class="section-intro fade-up">De votre premier message à la mise en ligne, 4 étapes claires.</p>
     <div class="process-steps">
       <div class="process-step fade-up delay-1">
         <span class="step-num">01</span>
@@ -1113,7 +1398,7 @@ footer {
         <span class="step-num">02</span>
         <div class="step-icon-wrap">🎨</div>
         <h3>Design</h3>
-        <p>On crée un premier aperçu visuel. Vous validez, on ajuste si besoin — sans allers-retours infinis.</p>
+        <p>On crée un premier aperçu visuel. Vous validez, on ajuste si besoin, sans allers-retours infinis.</p>
       </div>
       <div class="process-step fade-up delay-3">
         <span class="step-num">03</span>
@@ -1125,8 +1410,62 @@ footer {
         <span class="step-num">04</span>
         <div class="step-icon-wrap">🚀</div>
         <h3>En ligne en 48h</h3>
-        <p>Votre site est mis en ligne avec votre domaine, votre hébergement et votre SSL. Prêt à convertir.</p>
+        <p>Votre site est mis en ligne avec votre domaine, hébergement et SSL. Prêt à convertir.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <span class="section-tag fade-up">Avis clients</span>
+    <h2 class="fade-up">Ils nous ont fait<br>confiance. Et vous ?</h2>
+    <p class="section-intro fade-up">Nos clients parlent mieux de nous que nous-mêmes.</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card fade-up delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">En 48h, j'avais un site professionnel et beau. Depuis, je reçois des demandes via le formulaire presque chaque semaine. Franchement bluffant pour ce prix.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">MA</div>
+          <div>
+            <div class="author-name">Maria A.</div>
+            <div class="author-role">Restauratrice · Pastas Ma, Paris 11e</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">J'avais un vieux site Wix qui me faisait honte. Maintenant j'envoie mon lien à mes clients avec fierté. Le résultat est vraiment professionnel, à un prix imbattable.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">NL</div>
+          <div>
+            <div class="author-name">Nicolas L.</div>
+            <div class="author-role">Guide touristique · Paris</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up delay-3">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">Super réactif, à l'écoute et le rendu final est top. Mon salon est maintenant visible sur Google Maps et les réservations ont augmenté de 40%. Je recommande sans hésiter !</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: linear-gradient(135deg,#e879f9,#ec4899)">SP</div>
+          <div>
+            <div class="author-name">Sophie P.</div>
+            <div class="author-role">Coiffeuse indépendante · Paris 18e</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1139,54 +1478,86 @@ footer {
     <p class="section-intro fade-up">Un paiement unique. Tout est inclus. Pas d'abonnements cachés.</p>
 
     <div class="promo-banner fade-up">
-      <span class="promo-banner-icon">🎉</span>
-      <span><strong>Offre spéciale</strong> — tarifs réduits valables jusqu'au 1er juin 2025.</span>
-      <span class="countdown">⏳ Plus que quelques jours</span>
+      <span>🎉</span>
+      <span><strong>Offre spéciale</strong> — tarif valable jusqu'au 1er juin 2026.</span>
+      <span class="countdown">⏳ <span id="countdown-text">Quelques jours restants</span></span>
     </div>
 
     <div class="pricing-grid">
-
-      <div class="pricing-card fade-up delay-1">
-        <div class="pricing-plan">Landing page</div>
+      <div class="pricing-card recommended fade-up delay-1">
+        <div class="pricing-badge">⚡ Votre site en ligne en 48h</div>
+        <div class="pricing-plan" style="margin-top:0.5rem;">Tarif Unique — Tout inclus</div>
         <div class="pricing-price"><sup>€</sup>350</div>
         <div class="pricing-delivery">
-          <span class="delivery-badge">⚡ 48h</span>
-          Livraison standard
+          Livraison garantie
+          <span class="delivery-badge">48h</span>
         </div>
-        <p class="pricing-desc">Pour les commerces qui veulent une présence en ligne simple, rapide et efficace.</p>
+        <p class="pricing-desc">Pas d'abonnements cachés. Un paiement unique, tout est compris.</p>
         <ul class="pricing-features">
-          <li><span class="feature-check">✓</span> Site one-page (landing page)</li>
-          <li><span class="feature-check">✓</span> Design mobile-first personnalisé</li>
-          <li><span class="feature-check">✓</span> Hébergement 1 an inclus</li>
-          <li><span class="feature-check">✓</span> Domaine .fr ou .com inclus</li>
-          <li><span class="feature-check">✓</span> Boutons WhatsApp & email</li>
-          <li><span class="feature-check">✓</span> Formulaire de contact</li>
-          <li><span class="feature-check">✓</span> Certificat SSL inclus</li>
+          <li><span class="feature-check">✓</span> Site vitrine one-page personnalisé</li>
+          <li><span class="feature-check">✓</span> Design moderne et mobile-first</li>
+          <li><span class="feature-check">✓</span> Hébergement et domaine inclus (1 an)</li>
+          <li><span class="feature-check">✓</span> Boutons d'action (WhatsApp & Appel direct)</li>
+          <li><span class="feature-check">✓</span> Formulaire de contact intégré</li>
+          <li><span class="feature-check">✓</span> Optimisation SEO local Paris</li>
+          <li><span class="feature-check">✓</span> Certificat SSL sécurisé</li>
         </ul>
-        <button class="btn-pricing outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Commencer →</button>
+        <button class="btn-pricing filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Demander mon site →</button>
+      </div>
+    </div>
+    <p class="pricing-note fade-up">Tous les prix sont TTC · Renouvellement hébergement/domaine à partir de 60€/an après la 1ère année</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-tag fade-up">FAQ</span>
+    <h2 class="fade-up">Questions fréquentes.</h2>
+    <p class="section-intro fade-up">Tout ce que vous voulez savoir avant de vous lancer.</p>
+    <div class="faq-list fade-up">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Est-ce que 48h c'est vraiment garanti ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Oui. À partir du moment où vous nous envoyez vos contenus (textes, logo, photos), on vous livre une première version en 48h ouvrées. Si on dépasse ce délai, on vous offre une réduction.</div>
       </div>
 
-      <div class="pricing-card recommended fade-up delay-2">
-        <div class="pricing-badge">⚡ Express 24h</div>
-        <div class="pricing-plan">Landing page express</div>
-        <div class="pricing-price"><sup>€</sup>450</div>
-        <div class="pricing-delivery">
-          <span class="delivery-badge express">🔥 24h</span>
-          Livraison express
-        </div>
-        <p class="pricing-desc">Besoin de votre site demain ? On priorise votre projet et livre en moins de 24 heures.</p>
-        <ul class="pricing-features">
-          <li><span class="feature-check">✓</span> Tout ce qui est dans Standard</li>
-          <li><span class="feature-check">✓</span> Traitement en priorité absolue</li>
-          <li><span class="feature-check">✓</span> Mise en ligne en 24h garantie</li>
-          <li><span class="feature-check">✓</span> Suivi en temps réel par WhatsApp</li>
-          <li><span class="feature-check">✓</span> 1 retouche express offerte</li>
-        </ul>
-        <button class="btn-pricing filled" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Commencer →</button>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Que se passe-t-il après la 1ère année ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">L'hébergement et le domaine sont inclus la première année. Ensuite, le renouvellement est à partir de 60€/an, soit le coût réel de l'hébergement, sans marge. Vous êtes libres de le gérer vous-même si vous préférez.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Puis-je modifier mon site après livraison ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Oui. On inclut 2 séries de corrections dans les 30 jours suivant la livraison. Pour des modifications ultérieures, on propose des forfaits à la demande à tarifs transparents.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Je n'ai pas de logo ni de photos, c'est un problème ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Pas du tout. On peut utiliser des photos libres de droits de haute qualité adaptées à votre activité, et créer un logo simple si nécessaire. On s'adapte à ce que vous avez.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Mon site sera-t-il visible sur Google ?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">On optimise votre site pour le référencement local parisien : balises, vitesse, Google Search Console. Les résultats SEO prennent quelques semaines à apparaître, mais la base technique est solide dès le lancement.</div>
       </div>
 
     </div>
-    <p class="pricing-note fade-up">Tous les prix sont TTC · Renouvellement hébergement/domaine à partir de 60€/an après la 1ère année</p>
   </div>
 </section>
 
@@ -1195,9 +1566,9 @@ footer {
   <div class="container">
     <div class="contact-inner">
       <div class="contact-left">
-        <span class="section-tag fade-up">Contact</span>
+        <span class="section-tag fade-up" style="color:rgba(96,165,250,0.7)">Contact</span>
         <h2 class="fade-up" style="color:var(--white)">Parlons de<br>votre projet.</h2>
-        <p class="section-intro fade-up" style="color:rgba(255,255,255,0.4)">Décrivez-nous votre activité. On vous répond sous 24h avec une proposition claire et sans engagement.</p>
+        <p class="section-intro fade-up" style="color:rgba(255,255,255,0.38)">Décrivez-nous votre activité. On vous répond sous 24h avec une proposition claire et sans engagement.</p>
         <div class="contact-perks">
           <div class="contact-perk fade-up delay-1">
             <div class="perk-icon">⚡</div>
@@ -1249,15 +1620,6 @@ footer {
               </select>
             </div>
             <div class="form-group">
-              <label for="f-formule">Formule souhaitée</label>
-              <select class="form-control" id="f-formule" name="formule">
-                <option value="">Sélectionner...</option>
-                <option>Standard — 350€ (livraison 48h)</option>
-                <option>Express — 450€ (livraison 24h)</option>
-                <option>Je ne sais pas encore</option>
-              </select>
-            </div>
-            <div class="form-group">
               <label for="f-message">Votre message</label>
               <textarea class="form-control" id="f-message" name="message" placeholder="Décrivez brièvement votre projet : avez-vous déjà un site ? Quels sont vos objectifs ?"></textarea>
             </div>
@@ -1279,34 +1641,57 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <span style="color:rgba(255,255,255,0.5)">Tekitech</span><span style="color:var(--accent)">.</span><span style="color:rgba(255,255,255,0.25)">paris</span>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span style="color:rgba(255,255,255,0.5)">Tekitech</span><span style="color:var(--cyan)">.</span><span style="color:rgba(255,255,255,0.2)">paris</span>
+      </div>
+      <p class="footer-tagline">Sites web sur-mesure pour les commerces locaux parisiens. Livré en 48h, à partir de 350€.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <div class="footer-col-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Réalisations</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#testimonials">Avis clients</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-col-links">
+        <a href="mailto:tekitech.paris@gmail.com">tekitech.paris@gmail.com</a>
+        <a href="https://wa.me/33600000000">WhatsApp</a>
+        <a href="#contact">Devis gratuit</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#portfolio">Réalisations</a>
-    <a href="#pricing">Tarifs</a>
-    <a href="#contact">Contact</a>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Tekitech Paris — Sites web pour commerces locaux à Paris.</div>
+    <div class="footer-legal">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+    </div>
   </div>
-  <div class="footer-copy">© 2025 Tekitech Paris — Sites web pour commerces locaux à Paris.</div>
 </footer>
 
 <script>
 // ── Particles ──
 (function() {
   const container = document.getElementById('particlesContainer');
-  for (let i = 0; i < 22; i++) {
+  for (let i = 0; i < 20; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
-    const size = Math.random() * 4 + 1.5;
+    const size = Math.random() * 3.5 + 1.5;
     p.style.cssText = `
       width:${size}px; height:${size}px;
       left:${Math.random()*100}%;
-      bottom:${Math.random()*15}%;
-      animation-duration:${9 + Math.random()*14}s;
-      animation-delay:${Math.random()*12}s;
-      opacity:${0.15 + Math.random()*0.35};
-      background: rgba(${Math.random() > 0.5 ? '96,165,250' : '56,189,248'},0.5);
+      bottom:${Math.random()*20}%;
+      animation-duration:${10 + Math.random()*14}s;
+      animation-delay:${Math.random()*14}s;
+      opacity:${0.12 + Math.random()*0.3};
+      background: rgba(${Math.random() > 0.5 ? '96,165,250' : '34,211,238'},0.6);
     `;
     container.appendChild(p);
   }
@@ -1333,31 +1718,58 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── Countdown to June 1 2026 ──
+(function() {
+  const target = new Date('2026-06-01T00:00:00');
+  function update() {
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) { document.getElementById('countdown-text').textContent = 'Offre expirée'; return; }
+    const days = Math.floor(diff / 86400000);
+    document.getElementById('countdown-text').textContent = days === 1 ? '1 jour restant' : `${days} jours restants`;
+  }
+  update();
+  setInterval(update, 60000);
+})();
+
+// ── Active nav highlight ──
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 80;
+  sections.forEach(s => {
+    if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = '';
+        if (a.getAttribute('href') === '#' + s.id) a.style.color = 'rgba(255,255,255,0.95)';
+      });
+    }
+  });
+}, { passive: true });
 
 // ── Form submit via Formspree ──
 async function submitForm() {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const activite = document.getElementById('f-activite').value;
-  const formule = document.getElementById('f-formule').value;
   const message = document.getElementById('f-message').value.trim();
 
-  // Validation
   let hasError = false;
-  [
-    { id: 'f-name', val: name },
-    { id: 'f-email', val: email },
-    { id: 'f-message', val: message }
-  ].forEach(({ id, val }) => {
-    const el = document.getElementById(id);
-    if (!val) {
-      el.classList.add('error');
-      setTimeout(() => el.classList.remove('error'), 2500);
-      hasError = true;
-    }
-  });
+  [{ id: 'f-name', val: name }, { id: 'f-email', val: email }, { id: 'f-message', val: message }]
+    .forEach(({ id, val }) => {
+      const el = document.getElementById(id);
+      if (!val) { el.classList.add('error'); setTimeout(() => el.classList.remove('error'), 2500); hasError = true; }
+    });
   if (hasError) return;
 
   const btn = document.getElementById('submitBtn');
@@ -1370,47 +1782,20 @@ async function submitForm() {
     const response = await fetch('https://formspree.io/f/xkoenlnz', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-        activite: activite || 'Non précisé',
-        formule: formule || 'Non précisé',
-        message,
-        _subject: `Tekitech — Nouveau projet : ${formule || activite || 'Demande'} de ${name}`
-      })
+      body: JSON.stringify({ name, email, activite: activite || 'Non précisé', message, _subject: `Tekitech — Nouveau projet : ${activite || 'Demande'} de ${name}` })
     });
-
     if (response.ok) {
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-    } else {
-      throw new Error('Erreur Formspree');
-    }
-  } catch (err) {
-    // Fallback mailto
+    } else { throw new Error(); }
+  } catch {
     const subject = encodeURIComponent(`Nouveau projet — ${activite || 'Demande'} via tekitech.paris`);
-    const body = encodeURIComponent(
-      `Nom : ${name}\nEmail : ${email}\nActivité : ${activite || 'Non précisé'}\nFormule : ${formule || 'Non précisé'}\n\nMessage :\n${message}`
-    );
+    const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\nActivité : ${activite || 'Non précisé'}\n\nMessage :\n${message}`);
     window.location.href = `mailto:tekitech.paris@gmail.com?subject=${subject}&body=${body}`;
     document.getElementById('formContent').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   }
 }
-
-// ── Active nav highlight ──
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY + 80;
-  sections.forEach(s => {
-    if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.style.color = '';
-        if (a.getAttribute('href') === '#' + s.id) a.style.color = 'rgba(255,255,255,0.9)';
-      });
-    }
-  });
-}, { passive: true });
 </script>
 </body>
 </html>
